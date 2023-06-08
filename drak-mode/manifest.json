@@ -1,0 +1,16 @@
+{
+    "name": "Change Background Color",
+    "version": "1.0",
+    "description": "Thay đổi background!",
+    "permissions": ["activeTab", "scripting", "storage", "tabs"],
+    "background": {
+      "service_worker": "js/background.js"
+    },
+    "action": {
+      "default_popup": "popup/popup.html"
+    },
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "manifest_version": 3
+  }

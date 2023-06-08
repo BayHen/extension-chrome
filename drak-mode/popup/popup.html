@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode Switch Dark or Ligth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@500&family=Rubik&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        min-width: 230px;
+        text-align: center;
+    }
+    h1{
+        font-family: 'Geologica', sans-serif;
+        font-size: 2.5rem;
+    }
+    .yellow{
+        color: rgb(0, 255, 157);
+    }
+    .blue{
+        color: rgb(0, 255, 234);
+    }
+    p, .button{
+        font-family: 'Rubik', sans-serif;
+        font-size: 1.1rem;
+    }
+    .button{
+        background-color: silver;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 2.4rem;
+        width: 5rem;
+        border-radius: 1.5rem;
+        cursor: pointer;
+        margin-left: 135px;
+    }
+    .row{
+        padding: 1rem 0.25rem;
+        margin: 0 0.1rem;
+        pointer-events: none;
+    }
+    .cricle{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2.4rem;
+        height: 2.4rem;
+        background-color: rgb(90, 87, 87);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .btn {
+      min-width: 100px;
+      display: flex;
+    }
+    button{
+      width: 50px;
+      height: 50px;
+      margin: 0 10px;
+    }
+
+    @keyframes SwitchModeRight {
+        from { 
+            left: 0;
+            background-color: rgb(90, 87, 87);
+        }
+        to {
+            left: 100%;
+            transform: translateX(-100%);
+            background-color: rgb(16, 175, 175);
+        }
+    }
+    @keyframes SwitchModeLeft {
+        from { 
+            left: 100%;
+            transform: translateX(-100%);
+            background-color: rgb(16, 175, 175);
+        }
+        to {
+            left: 0;
+            background-color: rgb(90, 87, 87);
+        }
+    }
+    @keyframes backgroundSwitch {
+        from { 
+            background-color: silver;
+        }
+        to {
+            background-color: aqua;
+        }
+    }
+    @keyframes backgroundSwitch1 {
+        from { 
+            background-color: aqua;
+        }
+        to {
+            background-color: silver;
+        }
+    }
+</style>
+<body class="popup">
+    <h1><span class="yellow">Mode</span><span class="blue">Switch</span></h1>
+    <p>Dark Mode</p>
+    <div class="button">
+        <div class="row">ON</div>
+        <div class="row">OFF</div>
+        <div class="cricle"></div>
+    </div>
+    <div class="btn" id="changeColor"></div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
