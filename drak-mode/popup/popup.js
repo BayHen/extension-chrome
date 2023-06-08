@@ -55,7 +55,7 @@ const changeColorButton = document.getElementById('changeColor');
 const buttonColors = ['#fff', '#e8453c', '#f9bb2d', '#4688f1', '#000'];
 const divTitle = document.createElement('p');
 divTitle.textContent = "Thay đổi background theo màu chọn";
-changeColorButton.before(divTitle)
+changeColorButton.before(divTitle);
 chrome.storage.sync.get('color', ({ color }) => {
   changeColorButton.style.backgroundColor = color;
   changeColorButton.setAttribute('value', color);
