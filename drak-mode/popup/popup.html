@@ -26,7 +26,7 @@
     .blue{
         color: rgb(0, 255, 234);
     }
-    p, .button{
+    p, .button, .title{
         font-family: 'Rubik', sans-serif;
         font-size: 1.1rem;
     }
@@ -66,6 +66,32 @@
       width: 50px;
       height: 50px;
       margin: 0 10px;
+    }
+    .changeColorBtn{
+        width: 100px;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: aliceblue;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .selectedColor{
+        align-items: center;
+        justify-content: center;
+        display: grid;
+    }
+    .colorGrid{
+        width: 50px;
+        height: 50px;
+        border-radius: 2px;
+        margin-left: 55px;
+        margin-top: 5px;
+    }
+    .display{
+        display: none;
     }
 
     @keyframes SwitchModeRight {
@@ -116,6 +142,11 @@
         <div class="cricle"></div>
     </div>
     <div class="btn" id="changeColor"></div>
+    <button class="changeColorBtn">Pick Color</button>
+    <div class="selectedColor display">
+        <span class="title">The color you chose</span>
+        <button class="colorGrid"></button>
+    </div>
     <script src="popup.js"></script>
 </body>
 

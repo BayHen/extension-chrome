@@ -81,6 +81,43 @@ const createColorButtons = (buttonColors) => {
   });
 };
 
+
+const btnClick = document.querySelector('.changeColorBtn');
+const struckSelect = document.querySelector('.selectedColor');
+const colorGrid = document.querySelector('.colorGrid');
+btnClick.addEventListener('click', async () => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.scripting.executeScript({
+      target: { tabId: tabs[0].id },
+      func: PickColer
+    }, async(result) => {
+      const [data] = result
+      if(data.result){
+        struckSelect.classList.remove('display');
+        const color = data.result.sRGBHex;
+        colorGrid.style.backgroundColor = color;
+        colorGrid.value = color;
+        try{
+          await navigator.clipboard.writeText(color);
+        }catch(e){
+          console.error(e);
+        }
+      }
+    });
+  });
+});
+
+colorGrid.addEventListener('click', async () =>{
+  const colorPick = colorGrid.value;
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.scripting.executeScript({
+      target: { tabId: tabs[0].id },
+      args: [colorPick],
+      func: setColor
+    });
+  });
+});
+
 function setColor(color) {
   let bodyHTML = document.querySelector('body');
   let media = document.querySelectorAll('img, video, picture');
@@ -91,6 +128,16 @@ function setColor(color) {
   });
 }
 
-createColorButtons(buttonColors);
-handlerButton();
+async function PickColer(){
+  try {
+    const eyeDropper = new EyeDropper()
+    return await eyeDropper.open()
+  }catch(e){
+    console.err(e);
+  }
+}
+(()=>{
+  createColorButtons(buttonColors);
+  handlerButton();
+})();
 
