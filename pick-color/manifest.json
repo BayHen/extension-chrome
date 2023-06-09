@@ -1,0 +1,16 @@
+{
+    "name": "Pick Color",
+    "version": "0.1.0",
+    "description": "Pick Color!",
+    "permissions": ["activeTab", "scripting", "storage", "tabs"],
+    "background": {
+      "service_worker": "js/background.js"
+    },
+    "action": {
+      "default_popup": "popup/popup.html"
+    },
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "manifest_version": 3
+}
